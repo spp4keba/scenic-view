@@ -34,6 +34,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import static org.scenicview.utils.SceneCreator.newScene;
 import org.scenicview.view.ScenicViewGui;
 
 public class SubmitExceptionDialog {
@@ -110,7 +111,7 @@ public class SubmitExceptionDialog {
 
         Platform.runLater(new Runnable() {
             @Override public void run() {
-                scene = new Scene(panel, SCENE_WIDTH, SCENE_HEIGHT);
+                scene = newScene(panel, SCENE_WIDTH, SCENE_HEIGHT);
 
                 stage = new Stage(StageStyle.UTILITY);
                 stage.setTitle("Exception");

@@ -169,8 +169,6 @@ public class ScenicView extends Application {
 //        System.setProperty(FXConnector.SCENIC_VIEW_VM, "true");
         startup();
 
-        setUserAgentStylesheet(STYLESHEET_MODENA);
-
         final RemoteVMsUpdateStrategy strategy = new RemoteVMsUpdateStrategy();
 
         // workaround for RT-10714

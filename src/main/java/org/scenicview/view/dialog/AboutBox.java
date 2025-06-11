@@ -18,6 +18,7 @@
 package org.scenicview.view.dialog;
 
 import org.scenicview.utils.PropertiesUtils;
+import static org.scenicview.utils.SceneCreator.newScene;
 import org.scenicview.view.DisplayUtils;
 import org.scenicview.view.ScenicViewGui;
 import org.scenicview.ScenicView;
@@ -77,7 +78,7 @@ public class AboutBox {
         this.panel.setAlignment(Pos.TOP_CENTER);
         this.panel.getChildren().addAll(this.header, this.textArea, this.footer);
 
-        this.scene = new Scene(panel, SCENE_WIDTH, SCENE_HEIGHT);
+        this.scene = newScene(panel, SCENE_WIDTH, SCENE_HEIGHT);
 
         this.stage = new Stage(StageStyle.UTILITY);
         this.stage.setTitle(title);
