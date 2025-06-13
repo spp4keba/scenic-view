@@ -81,6 +81,7 @@ import org.scenicview.model.update.AppsRepository;
 import org.scenicview.model.update.UpdateStrategy;
 import org.scenicview.utils.ExceptionLogger;
 import org.scenicview.utils.Logger;
+import static org.scenicview.utils.SceneCreator.newScene;
 import org.scenicview.view.control.FilterTextField;
 import org.scenicview.view.dialog.AboutBox;
 import org.scenicview.view.dialog.HelpBox;
@@ -973,8 +974,9 @@ public class ScenicViewGui {
 //    }
 
     public static void show(final ScenicViewGui scenicview, final Stage stage) {
-        final Scene scene = new Scene(scenicview.rootBorderPane);
+        final Scene scene = newScene(scenicview.rootBorderPane);
         scene.getStylesheets().addAll(STYLESHEETS);
+        scene.setUserAgentStylesheet("com/sun/javafx/scene/control/skin/modena/modena.css");
         stage.setScene(scene);
         stage.getIcons().add(APP_ICON);
         if (scenicview.activeStage != null && scenicview.activeStage instanceof StageControllerImpl)

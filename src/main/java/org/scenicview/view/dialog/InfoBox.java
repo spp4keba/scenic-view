@@ -33,6 +33,7 @@ import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
 import org.fxconnector.StageController;
+import static org.scenicview.utils.SceneCreator.newScene;
 import org.scenicview.view.ScenicViewGui;
 
 public class InfoBox {
@@ -57,7 +58,7 @@ public class InfoBox {
             final String textAreaText, final boolean editable, final int width, final int height) {
         final VBox pane = new VBox(20);
         pane.setId(StageController.FX_CONNECTOR_BASE_ID + "InfoBox");
-        final Scene scene = new Scene(pane, width, height); 
+        final Scene scene = newScene(pane, width, height); 
 
         final Stage stage = new Stage(StageStyle.UTILITY);
         stage.setTitle(title);

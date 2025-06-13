@@ -27,6 +27,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import org.fxconnector.StageController;
+import static org.scenicview.utils.SceneCreator.newScene;
 import org.scenicview.view.control.ProgressWebView;
 import org.scenicview.view.DisplayUtils;
 
@@ -49,7 +50,7 @@ public class HelpBox {
         wview.setPrefWidth(SCENE_WIDTH);
         wview.doLoad(url);
         pane.setCenter(wview);
-        final Scene scene = new Scene(pane, SCENE_WIDTH, SCENE_HEIGHT); 
+        final Scene scene = newScene(pane, SCENE_WIDTH, SCENE_HEIGHT); 
         stage = new Stage();
         stage.setTitle(title);
         stage.setScene(scene);
