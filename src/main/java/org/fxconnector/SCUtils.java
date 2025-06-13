@@ -131,7 +131,7 @@ class SCUtils {
                 return hovered;
         }
         final Point2D localPoint = target.sceneToLocal(x, y);
-        if (target.contains(localPoint) && ((!configuration.isIgnoreMouseTransparent() || !ConnectorUtils.isMouseTransparent(target)) && ConnectorUtils.isNodeVisible(target))) {
+        if (localPoint != null && target.contains(localPoint) && ((!configuration.isIgnoreMouseTransparent() || !ConnectorUtils.isMouseTransparent(target)) && ConnectorUtils.isNodeVisible(target))) {
             return target;
         }
 
