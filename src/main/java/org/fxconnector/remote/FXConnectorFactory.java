@@ -17,11 +17,19 @@
  */
 package org.fxconnector.remote;
 
+import java.util.Objects;
+
 import java.rmi.RemoteException;
 
 public class FXConnectorFactory {
+    public enum Type {
+        REMOTE,
+        EMBEDDED
+    }
 
     static FXConnector connector;
+
+    static Type type = Type.REMOTE;
 
     private FXConnectorFactory() {
         // no-op
@@ -29,9 +37,23 @@ public class FXConnectorFactory {
 
     public static synchronized FXConnector getConnector() throws RemoteException {
         if (connector == null) {
-            connector = new RemoteConnectorImpl();
+            switch(type) {
+                case REMOTE:
+                    connector = new RemoteConnectorImpl();
+                    break;
+                case EMBEDDED:
+                    connector = new EmbeddedConnectorImpl();
+                    break;
+                default:
+                    throw new RuntimeException("no connector for type: " + type);
+            }
         }
         return connector;
+    }
+
+    public static synchronized void setType(Type type) {
+        Objects.requireNonNull(type);
+        FXConnectorFactory.type = type;
     }
 
 }
