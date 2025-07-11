@@ -150,6 +150,11 @@ public class ScenicView extends Application {
         launch(args);
     }
 
+    public static void startEmbedded() throws Exception {
+        FXConnectorFactory.setType(FXConnectorFactory.Type.EMBEDDED);
+        new ScenicView().start(new Stage());
+    }
+
     @Override public void start(final Stage stage) throws Exception {
         // This mode is only available when we are in the commercial Scenic View,
         // so we must start up the license checker and validate

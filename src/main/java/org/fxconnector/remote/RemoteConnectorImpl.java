@@ -320,6 +320,8 @@ class RemoteConnectorImpl extends UnicastRemoteObject implements RemoteConnector
             RMIUtils.unbindScenicView(port);
         } catch (final Exception e) {
             ExceptionLogger.submitException(e);
+        } finally {
+            System.exit(0);
         }
     }
 
